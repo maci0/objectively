@@ -28,6 +28,14 @@
 #include <wctype.h>
 #include <xlocale.h>
 
+#ifdef __MINGW32__
+#include <xlocinfo.h>
+#define locale_t _locale_t
+#else
+#include <xlocale.h>
+#endif
+
+
 #include <Objectively/Array.h>
 #include <Objectively/Data.h>
 
