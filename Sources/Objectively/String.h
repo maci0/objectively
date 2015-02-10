@@ -30,7 +30,7 @@
 #ifdef __MINGW32__
 #include <xlocinfo.h>
 #define locale_t _locale_t
-#define locale_t __locale_t
+#define __locale_t _locale_t
 #define LC_GLOBAL_LOCALE	((__locale_t) -1L)
 #else
 #include <xlocale.h>
