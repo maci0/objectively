@@ -19,8 +19,24 @@ AM_SILENT_RULES([yes])
 AC_CHECK_HEADERS([iconv.h])
 AC_CHECK_HEADERS([pthread.h])
 
-PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
 PKG_CHECK_MODULES([CURL], [libcurl >= 7.16.0])
+
+dnl ---------------------------------
+dnl Check whether to build unit tests
+dnl ---------------------------------
+BUILD_TESTS=no
+AC_ARG_WITH(tests,
+AS_HELP_STRING([--with-tests],
+[build unit tests]
+)
+)
+AC_MSG_CHECKING(whether to build unit tests)
+if test "x${with_tests}" = xyes; then
+BUILD_TESTS=yes
+PKG_CHECK_MODULES([CHECK], [check >= 0.9.4])
+fi
+AC_MSG_RESULT($BUILD_TESTS)
+AM_CONDITIONAL(BUILD_TESTS, test "x$BUILD_TESTS" = xyes)
 
 AC_CONFIG_FILES([
 	Makefile
