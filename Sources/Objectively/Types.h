@@ -95,13 +95,17 @@ typedef ORDER (*Comparator)(const id obj1, const id obj2);
 /**
  * @return The maximum of the two parameters.
  */
+#if !defined(__WIN32__)
 #define max(a, b) \
    ({ typeof(a) _a = (a); typeof(b) _b = (b); _a > _b ? _a : _b; })
+#endif
 
 /**
  * @return The minimum of the two parameters.
  */
+#if !defined(__WIN32__)
 #define min(a, b) \
    ({ typeof(a) _a = (a); typeof(b) _b = (b); _a < _b ? _a : _b; })
+#endif
 
 #endif
