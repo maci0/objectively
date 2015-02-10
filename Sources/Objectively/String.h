@@ -26,7 +26,6 @@
 
 #include <ctype.h>
 #include <wctype.h>
-#include <xlocale.h>
 
 #ifdef __MINGW32__
 #include <xlocinfo.h>
