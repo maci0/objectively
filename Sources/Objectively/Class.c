@@ -65,7 +65,14 @@ static void setup(void) {
 
 	_classes = NULL;
 
-	_pageSize = sysconf(_SC_PAGESIZE);
+/* Workaround */
+#if defined(__WIN32__)
+        _pageSize=4096;
+#else
+        _pageSize = sysconf(_SC_PAGESIZE);
+
+#endif
+
 
 	atexit(teardown);
 }
