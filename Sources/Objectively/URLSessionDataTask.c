@@ -24,6 +24,8 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define _NO_BOOL_TYPEDEF
 #include <curl/curl.h>
 
 #include <Objectively/MutableData.h>

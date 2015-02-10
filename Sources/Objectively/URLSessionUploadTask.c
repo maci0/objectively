@@ -24,6 +24,7 @@
 #include <assert.h>
 #include <string.h>
 
+#define _NO_BOOL_TYPEDEF
 #include <curl/curl.h>
 
 #include <Objectively/URLSessionUploadTask.h>
